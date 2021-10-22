@@ -1,0 +1,80 @@
+body, ul { padding: 0; margin: 0; }
+
+.container {
+    width: 100vw;/*vw: significa viewport width e definimos como 100vw, ocupando assim a largura total da tela do dispositivo que visualiza, isto é para nosso container ocupar 100% da largura da pagina*/
+    height: 100vh;/*vh: significa viewport height e também definimos como 100vh para que toda a altura seja ocupada.*/
+    display: flex;
+    flex-direction: row;
+}
+.item  {
+    flex-grow: 1;/*O flex-grow é definido como 1, permitindo assim que os itens ocupem todo o espaço de maneira igual;*/
+    background-position: center;
+    background-size: cover;
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);/* filter aplica um filtro, neste caso, um filtro preto e branco de 100%*/
+    position: relative;
+    list-style: none;
+    transition: all .7s ease-in-out;
+}
+
+.item:hover {
+    flex-grow: 10;/*A propriedade flex-grow, que antes tinha o valor 1, agora recebe o valor 10. Isso faz com que o item agora seja 10 vezes maior do que os outros que ainda estão com o valor de flex-grow igual a 1.*/
+    -webkit-filter: grayscale(0%);
+    filter: grayscale(0%);
+}
+
+.item a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.text {
+    font-size: 0;/*aqui a fonte é definida como zero para que ela não seja vista antes do mouse passar por cima*/
+    font-family: sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+    transition: all .5s ease-in-out;
+}
+
+.item:hover .text {/*estilização do texto quando for passado o mouse por cima, ira aumentar a font e ganhar uma sombra leve*/
+    font-size: 32px;
+    text-shadow: 2px 2px 12px black;
+}
+
+/*declaração das imagens*/
+.primeiro {
+    background-image: url(img/img1.jpg);
+}
+
+.segundo {
+    background-image: url(img/img2.jpg);
+     
+}
+
+.terceiro {
+    background-image: url(img/img3.jpg);
+}
+
+.quarto {
+    background-image: url(img/img4.jpg);
+}
+
+@media screen and (max-width: 768px) {/*nosso media query que define que agora o deslocamento sera em coluna e a font sera visivel mesmo antes de o 
+    usuario passar o dedo ou o mouse por cima*/
+
+    .container {
+        flex-direction: column;
+    }
+
+    .text {
+        font-size: 16px;
+    }
+
+}
